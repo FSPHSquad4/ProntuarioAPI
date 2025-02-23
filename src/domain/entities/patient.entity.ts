@@ -1,14 +1,12 @@
-import { Entity, PrimaryKey, Property } from "@mikro-orm/core";
+import { Entity, Property } from "@mikro-orm/core";
+import { BaseEntity } from "./base.entity.ts";
 
 @Entity()
-export class Patient {
-    @PrimaryKey({ type: "bigint" })
-    id!: number;
-
+export class Patient extends BaseEntity {
     @Property()
     fullName!: string;
 
-    @Property()
+    @Property({ unique: true })
     cpf!: string;
 
     @Property()
