@@ -1,19 +1,10 @@
-import { MikroORM } from "@mikro-orm/mariadb";
-import express, { type Express, type Request, type Response } from "express";
-import { configDotenv } from "dotenv";
-import cors from "cors";
+import "reflect-metadata";
+import "@shared/injection/container";
+import { Server } from "@infrastructure/server/server";
 
-configDotenv();
+async function bootstrap() {
+    const server = new Server();
+    await server.start();
+}
 
-const app: Express = express();
-app.use(express.json());
-app.use(cors());
-
-app.get("/", (req: Request, res: Response) => {
-    res.send("Hello world");
-});
-
-await MikroORM.init();
-console.log("Connected to database");
-
-export { app };
+bootstrap();
