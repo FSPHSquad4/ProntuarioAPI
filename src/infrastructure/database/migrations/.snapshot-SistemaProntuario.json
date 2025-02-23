@@ -13,6 +13,27 @@
           "length": null,
           "mappedType": "bigint"
         },
+        "created_at": {
+          "name": "created_at",
+          "type": "datetime",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "default": "CURRENT_TIMESTAMP",
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "datetime",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "length": null,
+          "mappedType": "datetime"
+        },
         "full_name": {
           "name": "full_name",
           "type": "varchar(255)",
@@ -76,6 +97,16 @@
       },
       "name": "patient",
       "indexes": [
+        {
+          "columnNames": [
+            "cpf"
+          ],
+          "composite": false,
+          "keyName": "patient_cpf_unique",
+          "constraint": true,
+          "primary": false,
+          "unique": true
+        },
         {
           "keyName": "PRIMARY",
           "columnNames": [

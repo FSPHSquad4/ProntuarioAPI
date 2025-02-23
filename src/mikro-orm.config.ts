@@ -14,7 +14,7 @@ const config: Options = {
 
     migrations: {
         transactional: false,
-        path: "./src/migrations",
+        path: "./src/infrastructure/database/migrations",
     },
 
     user: process.env.DB_USER,
