@@ -12,11 +12,17 @@ const config: Options = {
     entities: ["src/domain/entities/*.entity.ts"],
     metadataProvider: TsMorphMetadataProvider,
 
-    debug: true,
+    debug: false,
     driverOptions: {
         connection: {
-            connectTimeout: 5000,
+            connectTimeout: 10000,
+            socketTimeout: 30000,
         },
+    },
+
+    migrations: {
+        transactional: false,
+        path: "../src/infrastructure/database/migrations",
     },
 
     user: process.env.TEST_DB_USER,
