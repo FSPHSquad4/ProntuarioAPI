@@ -36,7 +36,10 @@
             "@repositories/*": ["./infrastructure/database/repositories/*"],
             "@presentation/*": ["./presentation/*"],
             "@shared/*": ["./shared/*"],
-            "@middlewares/*": ["./shared/middlewares/*"]
+            "@middlewares/*": ["./shared/middlewares/*"],
+
+            "@tests": ["../tests"],
+            "@mikro-test": ["../tests/mikro-orm.test.config.ts"]
         }
     }
 }
