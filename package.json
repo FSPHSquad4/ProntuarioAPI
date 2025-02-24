@@ -5,7 +5,10 @@
     "scripts": {
         "start": "bun run src/index.ts",
         "prettier": "bunx prettier . --write",
-        "lint": "bunx eslint . --ext .ts"
+        "lint": "bunx eslint . --ext .ts",
+        "test": "bun test --preload ./test/setup.ts",
+        "test:unit": "bun test --preload ./tests/setup.ts tests/**/*.unit.test.ts",
+        "test:integration": "bun test --preload ./tests/setup.ts tests/**/*.integration.test.ts"
     },
     "devDependencies": {
         "@eslint/js": "^9.21.0",
