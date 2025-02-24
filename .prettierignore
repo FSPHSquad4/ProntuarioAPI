@@ -8,3 +8,5 @@ test-fixtures/
 node_modules/
 *.lock
 eslint.config.js
+*.md
+*.yml
