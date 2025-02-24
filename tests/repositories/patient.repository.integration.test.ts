@@ -9,7 +9,6 @@ describe("PatientRepository", () => {
     beforeEach(async () => {
         em = Database.getInstance().em.fork();
         await em.begin();
-        await em.nativeDelete(Patient, {});
     });
 
     test("should create a new patient", async () => {
