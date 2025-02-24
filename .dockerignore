@@ -1,0 +1,10 @@
+node_modules
+.env
+.env.example
+Dockerfile
+docker-compose.yml
+.git
+**/*.log
+temp
+*.md
+.editorconfig
