@@ -126,6 +126,18 @@ feat(login): adiciona autenticação via Google
 
 4. **Não clique em "Merge"!** Apenas administradores farão o merge.
 
+#### Outro jeito de fazer um PR
+
+1. No Git (local), crie sua branch com o `git checkout -b`, adicione suas mudanças com o `git add` e commite com o `git commit`
+2. Para dar o push, se é o primeiro commit da sua branch, use o comando `git push -u origin nome_da_branch`
+3. Caso funcione corretamente, você verá algo assim:
+![Pós-push](https://imgur.com/LeMlTfz.png)
+4. Você verá o texto ali `remote: Create a pull request for...`. Pegue o link abaixo dessa mensagem, copie e cole no seu navegador ou use `Ctrl + clique esquerdo do mouse` para abrir direto o link
+5. De lá, você estará na página de abertura de um pull request, onde você colocará o título do PR, descrição, que issue ele resolve, quem é o responsável, quem é o revisor etc.
+![Página do pull request no GitHub](https://imgur.com/NDNjPNa.png)
+6. Após clicar em **"Create pull request"** você verá a página do seu PR, do que falta para ele ser mergeado, se alguém já revisou e se ele já foi aprovado, se há conflitos e outras coisas.
+![Imagem do PR já mergeado](https://imgur.com/EZdej0h.png)
+7. Depois do seu PR ser mergeado, volte para a branch principal (`main`), faça um `git pull` e, após isso, remova a branch da mudança com o comando `git branch -d nome_da_branch`.
 ---
 
 ## ✅ Regras para PRs Aprovados
