@@ -3,7 +3,7 @@ import { TsMorphMetadataProvider } from "@mikro-orm/reflection";
 import { configDotenv } from "dotenv";
 configDotenv();
 
-const port = parseInt(process.env.DB_PORT || "3306");
+const port = parseInt(process.env.MARIADB_PORT || "3306");
 
 const config: Options = {
     driver: MariaDbDriver,
