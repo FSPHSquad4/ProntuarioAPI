@@ -23,6 +23,7 @@ describe("PatientRepository - Integration", () => {
         const patientData = {
             fullName: "João Silva",
             cpf: "12345678900",
+            birthDate: "01/01/1990",
             gender: "M",
             maritalStatus: "S",
             companionName: "Maria Silva",
@@ -30,7 +31,10 @@ describe("PatientRepository - Integration", () => {
         };
 
         const patient = await repository.add(patientData);
+
         expect(patient.id).toBeDefined();
+        expect(patient.birthDate).toBeInstanceOf(Date);
+        expect(patient.birthDate).toEqual(new Date(patientData.birthDate));
         expect(patient.createdAt).toBeInstanceOf(Date);
     });
 
@@ -53,6 +57,7 @@ describe("PatientRepository - Integration", () => {
     test("should delete a patient", async () => {
         const patient = await repository.findById(1);
         const deleted = await repository.delete(patient!.id);
+
         expect(deleted).toBe(true);
 
         const patients = await repository.listAll();
