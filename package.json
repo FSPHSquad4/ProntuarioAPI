@@ -37,6 +37,7 @@
         "@mikro-orm/migrations": "^6.4.6",
         "@mikro-orm/reflection": "^6.4.6",
         "cors": "^2.8.5",
+        "date-fns": "^4.1.0",
         "dotenv": "^16.4.7",
         "express": "^4.21.2",
         "inversify": "^6.2.2",
