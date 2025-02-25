@@ -16,6 +16,7 @@ export class CreatePatientController {
                 const {
                     fullName,
                     cpf,
+                    birthDate,
                     gender,
                     maritalStatus,
                     companionName,
@@ -25,6 +26,7 @@ export class CreatePatientController {
                 const patient = await createPatientService.execute({
                     fullName,
                     cpf,
+                    birthDate,
                     gender,
                     maritalStatus,
                     companionName,

@@ -2,6 +2,7 @@ import type { CreatePatientDTO } from "@domain/dto/patients/create-patient.dto";
 import type { Patient } from "@domain/entities/patient.entity";
 import type { IPatientRepository } from "@domain/interfaces/repositories/patient.repository";
 import { TYPES } from "@shared/constants/constants";
+import { parseDateFormat } from "@shared/helpers/parseDateFormat";
 import { AppError } from "@shared/middlewares/errorHandler";
 import { inject, injectable } from "inversify";
 
@@ -15,6 +16,7 @@ export class CreatePatientService {
     async execute({
         fullName,
         cpf,
+        birthDate,
         gender,
         maritalStatus,
         companionName,
@@ -27,9 +29,14 @@ export class CreatePatientService {
             throw new AppError("Patient already exists", 400);
         }
 
+        const parsedBirthDate: Date = parseDateFormat(
+            birthDate as unknown as string,
+        );
+
         const patient = await this._patientRepository.add({
             fullName,
             cpf,
+            birthDate: parsedBirthDate,
             gender,
             maritalStatus,
             companionName,
