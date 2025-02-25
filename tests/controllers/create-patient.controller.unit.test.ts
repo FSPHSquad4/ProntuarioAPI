@@ -34,11 +34,11 @@ describe("CreatePatientController", () => {
         const req = {
             body: {
                 fullName: "Test",
-                cpf: "123",
+                cpf: "12345678910",
                 gender: "M",
                 maritalStatus: "S",
-                companionName: "Test",
-                companionCpf: "456",
+                companionName: "Test Companion",
+                companionCpf: "45693685211",
             },
         } as Request;
 
