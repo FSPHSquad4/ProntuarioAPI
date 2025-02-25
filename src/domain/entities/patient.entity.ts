@@ -6,18 +6,21 @@ export class Patient extends BaseEntity {
     @Property()
     fullName!: string;
 
-    @Property({ unique: true })
+    @Property({ unique: true, length: 11 })
     cpf!: string;
 
-    @Property()
+    @Property({ type: "date" })
+    birthDate!: Date;
+
+    @Property({ length: 1, type: "char" })
     gender!: string;
 
-    @Property()
+    @Property({ length: 1, type: "char" })
     maritalStatus!: string;
 
     @Property()
     companionName!: string;
 
-    @Property()
+    @Property({ length: 11 })
     companionCpf!: string;
 }

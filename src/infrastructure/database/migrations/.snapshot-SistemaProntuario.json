@@ -1,123 +1,137 @@
 {
-    "namespaces": [],
-    "tables": [
-        {
-            "columns": {
-                "id": {
-                    "name": "id",
-                    "type": "bigint",
-                    "unsigned": true,
-                    "autoincrement": true,
-                    "primary": true,
-                    "nullable": false,
-                    "length": null,
-                    "mappedType": "bigint"
-                },
-                "created_at": {
-                    "name": "created_at",
-                    "type": "datetime",
-                    "unsigned": false,
-                    "autoincrement": false,
-                    "primary": false,
-                    "nullable": false,
-                    "length": null,
-                    "default": "CURRENT_TIMESTAMP",
-                    "mappedType": "datetime"
-                },
-                "updated_at": {
-                    "name": "updated_at",
-                    "type": "datetime",
-                    "unsigned": false,
-                    "autoincrement": false,
-                    "primary": false,
-                    "nullable": true,
-                    "length": null,
-                    "mappedType": "datetime"
-                },
-                "full_name": {
-                    "name": "full_name",
-                    "type": "varchar(255)",
-                    "unsigned": false,
-                    "autoincrement": false,
-                    "primary": false,
-                    "nullable": false,
-                    "length": 255,
-                    "mappedType": "string"
-                },
-                "cpf": {
-                    "name": "cpf",
-                    "type": "varchar(255)",
-                    "unsigned": false,
-                    "autoincrement": false,
-                    "primary": false,
-                    "nullable": false,
-                    "length": 255,
-                    "mappedType": "string"
-                },
-                "gender": {
-                    "name": "gender",
-                    "type": "varchar(255)",
-                    "unsigned": false,
-                    "autoincrement": false,
-                    "primary": false,
-                    "nullable": false,
-                    "length": 255,
-                    "mappedType": "string"
-                },
-                "marital_status": {
-                    "name": "marital_status",
-                    "type": "varchar(255)",
-                    "unsigned": false,
-                    "autoincrement": false,
-                    "primary": false,
-                    "nullable": false,
-                    "length": 255,
-                    "mappedType": "string"
-                },
-                "companion_name": {
-                    "name": "companion_name",
-                    "type": "varchar(255)",
-                    "unsigned": false,
-                    "autoincrement": false,
-                    "primary": false,
-                    "nullable": false,
-                    "length": 255,
-                    "mappedType": "string"
-                },
-                "companion_cpf": {
-                    "name": "companion_cpf",
-                    "type": "varchar(255)",
-                    "unsigned": false,
-                    "autoincrement": false,
-                    "primary": false,
-                    "nullable": false,
-                    "length": 255,
-                    "mappedType": "string"
-                }
-            },
-            "name": "patient",
-            "indexes": [
-                {
-                    "columnNames": ["cpf"],
-                    "composite": false,
-                    "keyName": "patient_cpf_unique",
-                    "constraint": true,
-                    "primary": false,
-                    "unique": true
-                },
-                {
-                    "keyName": "PRIMARY",
-                    "columnNames": ["id"],
-                    "composite": false,
-                    "constraint": true,
-                    "primary": true,
-                    "unique": true
-                }
-            ],
-            "checks": [],
-            "foreignKeys": {},
-            "nativeEnums": {}
+  "namespaces": [],
+  "tables": [
+    {
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "bigint",
+          "unsigned": true,
+          "autoincrement": true,
+          "primary": true,
+          "nullable": false,
+          "length": null,
+          "mappedType": "bigint"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "datetime",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "length": null,
+          "default": "CURRENT_TIMESTAMP",
+          "mappedType": "datetime"
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "datetime",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": true,
+          "length": null,
+          "mappedType": "datetime"
+        },
+        "full_name": {
+          "name": "full_name",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 255,
+          "mappedType": "string"
+        },
+        "cpf": {
+          "name": "cpf",
+          "type": "varchar(11)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 11,
+          "mappedType": "string"
+        },
+        "birth_date": {
+          "name": "birth_date",
+          "type": "date",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": null,
+          "mappedType": "date"
+        },
+        "gender": {
+          "name": "gender",
+          "type": "char(1)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 1,
+          "mappedType": "character"
+        },
+        "marital_status": {
+          "name": "marital_status",
+          "type": "char(1)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 1,
+          "mappedType": "character"
+        },
+        "companion_name": {
+          "name": "companion_name",
+          "type": "varchar(255)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 255,
+          "mappedType": "string"
+        },
+        "companion_cpf": {
+          "name": "companion_cpf",
+          "type": "varchar(11)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 11,
+          "mappedType": "string"
         }
-    ],
-    "nativeEnums": {}
+      },
+      "name": "patient",
+      "indexes": [
+        {
+          "columnNames": [
+            "cpf"
+          ],
+          "composite": false,
+          "keyName": "patient_cpf_unique",
+          "constraint": true,
+          "primary": false,
+          "unique": true
+        },
+        {
+          "keyName": "PRIMARY",
+          "columnNames": [
+            "id"
+          ],
+          "composite": false,
+          "constraint": true,
+          "primary": true,
+          "unique": true
+        }
+      ],
+      "checks": [],
+      "foreignKeys": {},
+      "nativeEnums": {}
+    }
+  ],
+  "nativeEnums": {}
 }
