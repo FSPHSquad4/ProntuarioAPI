@@ -8,6 +8,7 @@ import {
 } from "express";
 import { container } from "@shared/injection/container";
 import { TYPES } from "@shared/constants/constants";
+import type { UpdatePatientController } from "@application/controllers/patients/update-patient.controller";
 
 const patientRoutes = Router();
 
@@ -30,5 +31,16 @@ patientRoutes.get("/", (req: Request, res: Response, next: NextFunction) => {
 
     controller.handle(req, res, next);
 });
+
+patientRoutes.patch(
+    "/:id",
+    (req: Request, res: Response, next: NextFunction) => {
+        const controller = resolveController<UpdatePatientController>(
+            TYPES.UpdatePatientController,
+        );
+
+        controller.handle(req, res, next);
+    },
+);
 
 export default patientRoutes;

@@ -33,6 +33,7 @@
             "@domain/*": ["./domain/*"],
             "@application/*": ["./application/*"],
             "@infrastructure/*": ["./infrastructure/*"],
+            "@injection/*": ["./infrastructure/injection/*"],
             "@repositories/*": ["./infrastructure/database/repositories/*"],
             "@presentation/*": ["./presentation/*"],
             "@shared/*": ["./shared/*"],
