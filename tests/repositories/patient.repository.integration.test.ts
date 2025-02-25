@@ -1,30 +1,61 @@
 import { Patient } from "@domain/entities/patient.entity";
 import { Database } from "@infrastructure/database/connection";
+import { PatientRepository } from "@infrastructure/database/repositories/patient.repository";
 import type { EntityManager } from "@mikro-orm/mariadb";
-import { test, beforeEach, describe, expect } from "bun:test";
+import { test, beforeEach, describe, expect, afterEach } from "bun:test";
 
-describe("PatientRepository", () => {
+describe("PatientRepository - Integration", () => {
     let em: EntityManager;
+    let repository: PatientRepository;
 
     beforeEach(async () => {
         em = Database.getInstance().em.fork();
         await em.begin();
+
+        repository = new PatientRepository(em);
     });
 
-    test("should create a new patient", async () => {
-        const repository = em.getRepository(Patient);
+    afterEach(async () => {
+        await em.commit(); // Nota do Pedrão: ele commita cada transação do test(), então quando criar um paciente, ele permanece no banco até o fim do teste
+    });
 
-        const patient = repository.create({
+    test("should add a new patient", async () => {
+        const patientData = {
             fullName: "João Silva",
             cpf: "12345678900",
             gender: "M",
             maritalStatus: "S",
             companionName: "Maria Silva",
             companionCpf: "98765432100",
-        });
+        };
 
-        await em.persistAndFlush(patient);
+        const patient = await repository.add(patientData);
         expect(patient.id).toBeDefined();
         expect(patient.createdAt).toBeInstanceOf(Date);
+    });
+
+    test("should list all patients", async () => {
+        const patients = await repository.listAll();
+
+        expect(patients).toBeArray();
+        expect(patients).toHaveLength(1);
+        expect(patients[0]).toBeInstanceOf(Patient);
+    });
+
+    test("should find a patient by CPF", async () => {
+        const cpf = "12345678900";
+        const patient = await repository.findByCpf(cpf);
+
+        expect(patient).toBeDefined();
+        expect(patient?.cpf).toEqual(cpf);
+    });
+
+    test("should delete a patient", async () => {
+        const patient = await repository.findById(1);
+        const deleted = await repository.delete(patient!.id);
+        expect(deleted).toBe(true);
+
+        const patients = await repository.listAll();
+        expect(patients).toHaveLength(0);
     });
 });
