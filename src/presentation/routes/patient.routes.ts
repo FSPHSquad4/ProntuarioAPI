@@ -1,5 +1,3 @@
-import { CreatePatientController } from "@application/controllers/patients/create-patient.controller";
-import { ListPatientsController } from "@application/controllers/patients/list-patients.controller";
 import {
     Router,
     type NextFunction,
@@ -8,7 +6,10 @@ import {
 } from "express";
 import { container } from "@shared/injection/container";
 import { TYPES } from "@shared/constants/constants";
+import type { CreatePatientController } from "@application/controllers/patients/create-patient.controller";
+import type { ListPatientsController } from "@application/controllers/patients/list-patients.controller";
 import type { UpdatePatientController } from "@application/controllers/patients/update-patient.controller";
+import type { DeletePatientController } from "@application/controllers/patients/delete-patient.controller";
 
 const patientRoutes = Router();
 
@@ -37,6 +38,17 @@ patientRoutes.patch(
     (req: Request, res: Response, next: NextFunction) => {
         const controller = resolveController<UpdatePatientController>(
             TYPES.UpdatePatientController,
+        );
+
+        controller.handle(req, res, next);
+    },
+);
+
+patientRoutes.delete(
+    "/:id",
+    (req: Request, res: Response, next: NextFunction) => {
+        const controller = resolveController<DeletePatientController>(
+            TYPES.DeletePatientController,
         );
 
         controller.handle(req, res, next);

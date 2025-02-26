@@ -9,6 +9,8 @@ import { TYPES } from "@shared/constants/constants";
 import type { EntityManager } from "@mikro-orm/mariadb";
 import { UpdatePatientService } from "@application/services/patients/update-patient.service";
 import { UpdatePatientController } from "@application/controllers/patients/update-patient.controller";
+import { DeletePatientService } from "@application/services/patients/delete-patient.service";
+import { DeletePatientController } from "@application/controllers/patients/delete-patient.controller";
 
 export const patientsModule = new ContainerModule((bind) => {
     bind<IPatientRepository>(TYPES.PatientRepository)
@@ -19,6 +21,8 @@ export const patientsModule = new ContainerModule((bind) => {
             return new PatientRepository(em);
         })
         .inRequestScope();
+
+    // Services
 
     bind<ListPatientsService>(TYPES.ListPatientsService)
         .to(ListPatientsService)
@@ -32,6 +36,12 @@ export const patientsModule = new ContainerModule((bind) => {
         .to(UpdatePatientService)
         .inSingletonScope();
 
+    bind<DeletePatientService>(TYPES.DeletePatientService)
+        .to(DeletePatientService)
+        .inSingletonScope();
+
+    // Controllers
+
     bind<ListPatientsController>(TYPES.ListPatientsController)
         .to(ListPatientsController)
         .inTransientScope();
@@ -42,5 +52,9 @@ export const patientsModule = new ContainerModule((bind) => {
 
     bind<UpdatePatientController>(TYPES.UpdatePatientController)
         .to(UpdatePatientController)
+        .inTransientScope();
+
+    bind<DeletePatientController>(TYPES.DeletePatientController)
+        .to(DeletePatientController)
         .inTransientScope();
 });
