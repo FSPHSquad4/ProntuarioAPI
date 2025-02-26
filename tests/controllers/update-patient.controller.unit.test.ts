@@ -6,7 +6,7 @@ import { container } from "@shared/injection/container";
 import { mock, beforeEach, describe, afterEach, test, expect } from "bun:test";
 import type { Request, Response } from "express";
 
-describe("UpdatePatientController", () => {
+describe("UpdatePatientController - Unit", () => {
     let mockService: UpdatePatientService;
     let controller: UpdatePatientController;
 
