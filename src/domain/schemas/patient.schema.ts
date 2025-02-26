@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { parseDateFormat } from "@shared/helpers/parseDateFormat";
 import { z } from "zod";
 
 export const createPatientSchema = z.object({
@@ -25,7 +23,8 @@ export const updatePatientSchema = z.object({
         .regex(
             /^(0[1-9]|[12][0-9]|3[01])[-/](0[1-9]|1[0-2])[-/]\d{4}$/,
             "Invalid date format",
-        ),
+        )
+        .optional(),
     gender: z.string().min(1).max(1).optional(),
     maritalStatus: z.string().min(1).max(1).optional(),
     companionName: z.string().min(3).max(255).optional(),
