@@ -10,7 +10,7 @@ const fakeController = {
 } as unknown as CreatePatientController;
 
 describe("CreatePatientController - Validation - Integration", () => {
-    test("should return 400 with validation errors if payload is invalid", async () => {
+    test("should return 400 with validation errors when birthDate and cpf are invalid", async () => {
         const req = {
             body: {
                 fullName: "Test",
@@ -43,6 +43,7 @@ describe("CreatePatientController - Validation - Integration", () => {
 
         expect(statusCode).toBe(400);
         expect(responseBody).toHaveProperty("errors");
+        expect(responseBody!.errors).toHaveLength(2);
         expect(responseBody!.errors).toContain("Invalid date format");
         expect(responseBody!.errors).toContain("Send a valid CPF.");
     });
