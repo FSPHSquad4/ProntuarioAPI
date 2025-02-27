@@ -10,8 +10,6 @@ services:
             timeout: 5s
             retries: 3
         environment:
-            MARIADB_USER: ${TEST_DB_USER}
-            MARIADB_PASSWORD: ${TEST_DB_PASSWORD}
             MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD_TEST}
             MARIADB_DATABASE: ${TEST_DB_NAME}
         ports:

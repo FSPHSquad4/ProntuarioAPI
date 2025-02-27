@@ -10,7 +10,7 @@ services:
             start_period: 10s
             interval: 10s
             timeout: 5s
-            retries: 3
+            retries: 5
         volumes:
             - mariadb-data:/var/lib/mysql
         environment:

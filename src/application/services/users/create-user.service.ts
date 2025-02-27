@@ -1,4 +1,4 @@
-import type { CreateUserDTO } from "@domain/dto/auth/create-user.dto";
+import type { CreateUserDTO } from "@domain/dto/users/create-user.dto";
 import type { IUserRepository } from "@domain/interfaces/repositories/user.repository";
 import { TYPES } from "@shared/constants/constants";
 import { AppError } from "@shared/middlewares/errorHandler";
