@@ -4,7 +4,6 @@ import {
     type Request,
     type Response,
 } from "express";
-import { container } from "@shared/injection/container";
 import { TYPES } from "@shared/constants/constants";
 import type { CreatePatientController } from "@application/controllers/patients/create-patient.controller";
 import type { ListPatientsController } from "@application/controllers/patients/list-patients.controller";
@@ -15,12 +14,9 @@ import {
     createPatientSchema,
     updatePatientSchema,
 } from "@domain/schemas/patient.schema";
+import { resolveController } from "@shared/helpers/resolveController";
 
 const patientRoutes = Router();
-
-const resolveController = <T>(identifier: symbol): T => {
-    return container.get<T>(identifier);
-};
 
 patientRoutes.post(
     "/",
