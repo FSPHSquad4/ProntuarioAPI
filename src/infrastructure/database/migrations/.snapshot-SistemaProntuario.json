@@ -44,16 +44,6 @@
           "length": 255,
           "mappedType": "string"
         },
-        "cpf": {
-          "name": "cpf",
-          "type": "varchar(11)",
-          "unsigned": false,
-          "autoincrement": false,
-          "primary": false,
-          "nullable": false,
-          "length": 11,
-          "mappedType": "string"
-        },
         "birth_date": {
           "name": "birth_date",
           "type": "date",
@@ -84,13 +74,23 @@
           "length": 1,
           "mappedType": "character"
         },
+        "cpf": {
+          "name": "cpf",
+          "type": "varchar(11)",
+          "unsigned": false,
+          "autoincrement": false,
+          "primary": false,
+          "nullable": false,
+          "length": 11,
+          "mappedType": "string"
+        },
         "companion_name": {
           "name": "companion_name",
           "type": "varchar(255)",
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": false,
+          "nullable": true,
           "length": 255,
           "mappedType": "string"
         },
@@ -100,7 +100,7 @@
           "unsigned": false,
           "autoincrement": false,
           "primary": false,
-          "nullable": false,
+          "nullable": true,
           "length": 11,
           "mappedType": "string"
         }
