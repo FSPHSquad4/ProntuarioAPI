@@ -11,8 +11,8 @@ export const createPatientSchema = z.object({
         ),
     gender: z.string().min(1).max(1),
     maritalStatus: z.string().min(1).max(1),
-    companionName: z.string().min(3).max(255),
-    companionCpf: z.string().length(11),
+    companionName: z.string().min(3).max(255).optional(),
+    companionCpf: z.string().length(11).optional(),
 });
 
 export const updatePatientSchema = z.object({

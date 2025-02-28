@@ -35,7 +35,6 @@ export class LoginService {
     }
 
     private signToken(payload: object): string {
-        console.log(process.env.JWT_SECRET);
         return jwt.sign(payload, `${process.env.JWT_SECRET}`, {
             expiresIn: "1h",
         });
