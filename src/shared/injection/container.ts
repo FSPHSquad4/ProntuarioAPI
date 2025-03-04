@@ -3,6 +3,8 @@ import { EntityManager, MikroORM } from "@mikro-orm/mariadb";
 import { Database } from "@infrastructure/database/connection";
 import { TYPES } from "@shared/constants/constants";
 import { patientsModule } from "@infrastructure/injection/patients.module.container";
+import { authModule } from "@infrastructure/injection/auth.module.container";
+import { usersModule } from "@infrastructure/injection/users.module.container";
 
 const container = new Container();
 
@@ -20,5 +22,9 @@ container
     .inRequestScope();
 
 container.load(patientsModule);
+
+container.load(authModule);
+
+container.load(usersModule);
 
 export { container };

@@ -4,7 +4,6 @@ import {
     type Request,
     type Response,
 } from "express";
-import { container } from "@shared/injection/container";
 import { TYPES } from "@shared/constants/constants";
 import type { CreatePatientController } from "@application/controllers/patients/create-patient.controller";
 import type { ListPatientsController } from "@application/controllers/patients/list-patients.controller";
@@ -15,15 +14,14 @@ import {
     createPatientSchema,
     updatePatientSchema,
 } from "@domain/schemas/patient.schema";
+import { resolveController } from "@shared/helpers/resolveController";
+import { authorize } from "@shared/middlewares/authorize";
 
 const patientRoutes = Router();
 
-const resolveController = <T>(identifier: symbol): T => {
-    return container.get<T>(identifier);
-};
-
 patientRoutes.post(
     "/",
+    authorize,
     validateSchema(createPatientSchema),
     (req: Request, res: Response, next: NextFunction) => {
         const controller = resolveController<CreatePatientController>(
@@ -34,7 +32,10 @@ patientRoutes.post(
     },
 );
 
-patientRoutes.get("/", (req: Request, res: Response, next: NextFunction) => {
+patientRoutes.get(
+    "/",
+    authorize,
+    (req: Request, res: Response, next: NextFunction) => {
     const controller = resolveController<ListPatientsController>(
         TYPES.ListPatientsController,
     );
@@ -44,6 +45,7 @@ patientRoutes.get("/", (req: Request, res: Response, next: NextFunction) => {
 
 patientRoutes.patch(
     "/:id",
+    authorize,
     validateSchema(updatePatientSchema),
     (req: Request, res: Response, next: NextFunction) => {
         const controller = resolveController<UpdatePatientController>(
@@ -56,6 +58,7 @@ patientRoutes.patch(
 
 patientRoutes.delete(
     "/:id",
+    authorize,
     (req: Request, res: Response, next: NextFunction) => {
         const controller = resolveController<DeletePatientController>(
             TYPES.DeletePatientController,

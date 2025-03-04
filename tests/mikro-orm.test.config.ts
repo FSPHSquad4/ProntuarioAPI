@@ -4,8 +4,6 @@ import { configDotenv } from "dotenv";
 
 configDotenv();
 
-const port = parseInt(process.env.TEST_DB_PORT || "3306");
-
 const config: Options = {
     driver: MariaDbDriver,
     dbName: process.env.TEST_DB_NAME,
@@ -27,8 +25,8 @@ const config: Options = {
 
     user: process.env.TEST_DB_USER,
     host: process.env.TEST_DB_HOST,
-    port: port,
-    password: process.env.TEST_DB_PASSWORD,
+    port: 3306,
+    password: process.env.MARIADB_ROOT_PASSWORD_TEST,
 };
 
 export default config;
