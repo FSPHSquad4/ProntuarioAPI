@@ -44,8 +44,12 @@ describe("CreatePatientController - Validation - Integration", () => {
         expect(statusCode).toBe(400);
         expect(responseBody).toHaveProperty("errors");
         expect(responseBody!.errors).toHaveLength(2);
-        expect(responseBody!.errors).toContain("Invalid date format");
-        expect(responseBody!.errors).toContain("Send a valid CPF.");
+        expect(responseBody!.errors.map((e) => e.message)).toContain(
+            "Invalid date format",
+        );
+        expect(responseBody!.errors.map((e) => e.message)).toContain(
+            "Send a valid CPF.",
+        );
     });
 
     test("should call controller if payload is valid", async () => {
