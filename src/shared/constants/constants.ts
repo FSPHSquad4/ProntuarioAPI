@@ -3,6 +3,7 @@ export const TYPES = {
     EntityManager: Symbol.for("EntityManager"),
     PatientRepository: Symbol.for("IPatientRepository"),
     UserRepository: Symbol.for("IUserRepository"),
+    ProfessionalRepository: Symbol.for("IProfessionalRepository"),
 
     LoginService: Symbol.for("LoginService"),
     CreateUserService: Symbol.for("CreateUserService"),
