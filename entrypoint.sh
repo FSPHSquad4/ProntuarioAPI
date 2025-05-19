@@ -1,4 +1,5 @@
 #!/bin/sh
-bunx mikro-orm migration:create
-bunx mikro-orm migration:up
+npx mikro-orm-esm migration:create
+npx mikro-orm-esm migration:up
+
 exec "$@"

@@ -1,6 +1,7 @@
-import { Property } from "@mikro-orm/core";
+import { Entity, Property } from "@mikro-orm/core";
 import { BaseEntity } from "./base.entity.ts";
 
+@Entity({ abstract: true })
 export abstract class Person extends BaseEntity {
     @Property()
     fullName!: string;

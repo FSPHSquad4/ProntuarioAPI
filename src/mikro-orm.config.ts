@@ -9,8 +9,8 @@ const config: Options = {
     driver: MariaDbDriver,
     dbName: "SistemaProntuario",
     metadataProvider: TsMorphMetadataProvider,
-    entitiesTs: ["./domain/entities/*.entity.ts"],
-    entities: ["./domain/entities/*.entity.ts"],
+    entitiesTs: ["src/domain/entities/*.entity.ts"],
+    entities: ["src/domain/entities/*.entity.ts"],
     debug: true,
 
     migrations: {

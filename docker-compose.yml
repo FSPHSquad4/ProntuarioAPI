@@ -5,17 +5,15 @@ services:
         container_name: mariadb_db
         ports:
             - "3310:3306"
+        volumes:
+            - mariadb-data:/var/lib/mysql
         healthcheck:
             test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
             start_period: 10s
             interval: 10s
             timeout: 5s
             retries: 5
-        volumes:
-            - mariadb-data:/var/lib/mysql
         environment:
-            MARIADB_USER: 'root'
-            MARIADB_PASSWORD: ${DB_PASSWORD}
             MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
             MARIADB_DATABASE: ${DB_NAME}
         networks:

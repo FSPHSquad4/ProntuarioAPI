@@ -1,23 +1,28 @@
-FROM oven/bun:1 AS base
+FROM node:22 AS deps
 WORKDIR /usr/src/app
 
-FROM base AS install
-RUN mkdir -p /temp
-COPY package.json bun.lock /temp/
-RUN cd /temp && bun install --frozen-lockfile
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+      make && \
+    rm -rf /var/lib/apt/lists/*
 
-FROM base AS development
-COPY --from=install /temp/node_modules node_modules
+COPY package.json package-lock.json ./
+RUN npm ci
+
+FROM node:22 AS development
+WORKDIR /usr/src/app
+
+COPY --from=deps /usr/src/app/node_modules ./node_modules
+
 COPY . .
 
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 ENV NODE_ENV=development
-ENV BUN_ENV=development
 ENV PORT=3003
 
 EXPOSE 3003
 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-ENTRYPOINT [ "/entrypoint.sh" ]
-
-CMD ["bun", "start"]
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["npm", "run", "start"]
