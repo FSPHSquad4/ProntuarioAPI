@@ -11,11 +11,13 @@
         "emitDecoratorMetadata": true,
         "esModuleInterop": true,
 
+        "declaration": true,
+
         // Bundler mode
         "moduleResolution": "bundler",
         "allowImportingTsExtensions": true,
+        "emitDeclarationOnly": true,
         "verbatimModuleSyntax": true,
-        "noEmit": true,
 
         // Best practices
         "strict": true,
@@ -29,7 +31,7 @@
 
         "baseUrl": "./src",
         "paths": {
-            "@mikro": ["./mikro-orm.config.ts"],
+            "@mikro": ["src/mikro-orm.config.ts"],
             "@domain/*": ["./domain/*"],
             "@application/*": ["./application/*"],
             "@infrastructure/*": ["./infrastructure/*"],

@@ -8,8 +8,9 @@ const port = parseInt(process.env.MARIADB_PORT || "3306");
 const config: Options = {
     driver: MariaDbDriver,
     dbName: "SistemaProntuario",
-    entities: ["src/domain/entities/*.entity.ts"],
     metadataProvider: TsMorphMetadataProvider,
+    entitiesTs: ["./domain/entities/*.entity.ts"],
+    entities: ["./domain/entities/*.entity.ts"],
     debug: true,
 
     migrations: {

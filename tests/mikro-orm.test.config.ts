@@ -25,7 +25,7 @@ const config: Options = {
 
     user: process.env.TEST_DB_USER,
     host: process.env.TEST_DB_HOST,
-    port: 3306,
+    port: +process.env.TEST_DB_PORT!,
     password: process.env.MARIADB_ROOT_PASSWORD_TEST,
 };
 

@@ -13,7 +13,7 @@ services:
             MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD_TEST}
             MARIADB_DATABASE: ${TEST_DB_NAME}
         ports:
-            - "3306:3306"
+            - "3304:3306"
         volumes:
             - test_db_data:/var/lib/mysql
         command:

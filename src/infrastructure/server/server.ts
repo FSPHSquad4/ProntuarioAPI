@@ -1,6 +1,6 @@
 import express from "express";
 import { Database } from "../database/connection";
-import config from "@mikro";
+import config from "../../mikro-orm.config";
 import { errorHandler } from "@middlewares/errorHandler";
 import { routes } from "@shared/http/routes";
 import cors from "cors";
