@@ -4,4 +4,6 @@ export type CreateProfessionalDTO = {
     specialty: string;
     contact: string;
     availability: string;
-}
+    birthDate: string;
+    gender: string;
+};

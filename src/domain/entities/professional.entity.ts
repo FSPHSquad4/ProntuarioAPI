@@ -1,5 +1,5 @@
 import { Entity, Property } from "@mikro-orm/core";
-import { Person } from "./person.entity";
+import { Person } from "./person.entity.ts";
 
 @Entity()
 export class Professional extends Person {

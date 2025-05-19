@@ -13,5 +13,5 @@ export abstract class Person extends BaseEntity {
     gender!: string;
 
     @Property({ length: 1, type: "char" })
-    maritalStatus!: string;
+    maritalStatus?: string;
 }

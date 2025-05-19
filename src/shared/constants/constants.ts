@@ -20,4 +20,8 @@ export const TYPES = {
     ListPatientsController: Symbol.for("ListPatientsController"),
     UpdatePatientController: Symbol.for("UpdatePatientController"),
     DeletePatientController: Symbol.for("DeletePatientController"),
+
+    CreateProfessionalService: Symbol.for("CreateProfessionalService"),
+
+    CreateProfessionalController: Symbol.for("CreateProfessionalController"),
 };
