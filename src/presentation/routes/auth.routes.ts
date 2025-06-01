@@ -1,8 +1,8 @@
 import { LoginController } from "@application/controllers/auth/login.controller";
-import { loginSchema } from "@domain/schemas/user.schema";
+import { loginSchema } from "@domain/schemas/login.schema";
 import { TYPES } from "@shared/constants/constants";
 import { resolveController } from "@shared/helpers/resolveController";
-import { validateSchema } from "@shared/middlewares/validateSchema";
+import { validateSchema } from "@infrastructure/middlewares/validateSchema";
 import { Router } from "express";
 import type { Request, Response, NextFunction } from "express";
 

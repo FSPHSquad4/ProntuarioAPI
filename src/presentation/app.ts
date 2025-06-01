@@ -1,6 +1,6 @@
 import "reflect-metadata";
-import "@shared/injection/container";
-import { Server } from "@infrastructure/server/server";
+import "@infrastructure/injection/container";
+import { Server } from "./server";
 
 async function bootstrap() {
     const server = new Server();

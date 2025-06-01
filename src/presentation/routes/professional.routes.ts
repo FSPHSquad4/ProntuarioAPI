@@ -2,7 +2,7 @@ import { CreateProfessionalController } from "@application/controllers/professio
 import { createProfessionalSchema } from "@domain/schemas/professional.schema";
 import { TYPES } from "@shared/constants/constants";
 import { resolveController } from "@shared/helpers/resolveController";
-import { validateSchema } from "@shared/middlewares/validateSchema";
+import { validateSchema } from "@infrastructure/middlewares/validateSchema";
 import {
     Router,
     type NextFunction,

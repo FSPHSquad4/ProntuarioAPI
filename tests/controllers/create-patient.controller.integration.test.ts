@@ -1,6 +1,6 @@
 import type { CreatePatientController } from "@application/controllers/patients/create-patient.controller";
 import { createPatientSchema } from "@domain/schemas/patient.schema";
-import { validateSchema } from "@shared/middlewares/validateSchema";
+import { validateSchema } from "@infrastructure/middlewares/validateSchema";
 import { describe, expect, mock, test } from "bun:test";
 import type { NextFunction, Request, Response } from "express";
 import type { ZodError } from "zod";

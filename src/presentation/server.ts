@@ -1,7 +1,7 @@
 import express from "express";
-import { Database } from "../database/connection";
-import config from "../../mikro-orm.config";
-import { errorHandler } from "@middlewares/errorHandler";
+import { Database } from "@infrastructure/database/connection";
+import config from "../mikro-orm.config";
+import { errorHandler } from "@infrastructure/middlewares/handlers/errorHandler";
 import { routes } from "@shared/http/routes";
 import cors from "cors";
 

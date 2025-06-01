@@ -1,20 +1,20 @@
-import jwt from "jsonwebtoken";
 import { inject, injectable } from "inversify";
 import { TYPES } from "@shared/constants/constants";
-import type { IUserRepository } from "@domain/interfaces/repositories/user.repository";
+import type { IGenericUserRepository } from "@domain/interfaces/repositories/generic-user.irepository";
 import type { LoginUserDTO } from "@domain/dto/auth/login.dto";
-import { AppError } from "@shared/middlewares/errorHandler";
+import { AppError } from "@infrastructure/middlewares/handlers/errorHandler";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 @injectable()
 export class LoginService {
     constructor(
-        @inject(TYPES.UserRepository)
-        private _userRepository: IUserRepository,
+        @inject(TYPES.GenericUserRepository)
+        private readonly userRepository: IGenericUserRepository,
     ) {}
 
-    async execute({ username, password }: LoginUserDTO): Promise<string> {
-        const user = await this._userRepository.findByUsername(username);
+    async execute({ email, password }: LoginUserDTO): Promise<string> {
+        const user = await this.userRepository.findByEmail(email);
 
         if (!user) {
             throw new AppError("User not found", 404);
@@ -22,14 +22,14 @@ export class LoginService {
 
         const isPasswordValid: boolean = await bcrypt.compare(
             password,
-            user.passwordHash,
+            user.password,
         );
 
         if (!isPasswordValid) {
             throw new AppError("Invalid password", 401);
         }
 
-        const token = this.signToken({ username, role: user.role });
+        const token = this.signToken({ email, role: user.role });
 
         return token;
     }

@@ -1,4 +1,4 @@
-import type { IProfessionalRepository } from "@domain/interfaces/repositories/professional.repository";
+import type { IProfessionalRepository } from "@domain/interfaces/repositories/professional.irepository";
 import type { EntityManager } from "@mikro-orm/mariadb";
 import { ProfessionalRepository } from "@infrastructure/database/repositories/professional.repository";
 import { TYPES } from "@shared/constants/constants";

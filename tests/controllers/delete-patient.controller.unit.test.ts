@@ -2,8 +2,8 @@ import type { DeletePatientController } from "@application/controllers/patients/
 import type { DeletePatientService } from "@application/services/patients/delete-patient.service";
 import type { Patient } from "@domain/entities/patient.entity";
 import { TYPES } from "@shared/constants/constants";
-import { container } from "@shared/injection/container";
-import { AppError } from "@shared/middlewares/errorHandler";
+import { container } from "@infrastructure/injection/container";
+import { AppError } from "@infrastructure/middlewares/handlers/errorHandler";
 import { afterEach, beforeEach, describe, expect, mock, test } from "bun:test";
 import type { Request, Response } from "express";
 

@@ -2,7 +2,7 @@ import { ContainerModule } from "inversify";
 import { PatientRepository } from "@repositories/patient.repository";
 import { ListPatientsService } from "@application/services/patients/list-patients.service";
 import { CreatePatientController } from "@application/controllers/patients/create-patient.controller";
-import type { IPatientRepository } from "@domain/interfaces/repositories/patient.repository";
+import type { IPatientRepository } from "@domain/interfaces/repositories/patient.irepository";
 import { ListPatientsController } from "@application/controllers/patients/list-patients.controller";
 import { CreatePatientService } from "@application/services/patients/create-patient.service";
 import { TYPES } from "@shared/constants/constants";

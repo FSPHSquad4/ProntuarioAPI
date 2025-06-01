@@ -1,7 +1,7 @@
 import type { Patient } from "@domain/entities/patient.entity";
-import { asyncHandler } from "@shared/middlewares/asyncHandler";
+import { asyncHandler } from "@infrastructure/middlewares/handlers/asyncHandler";
 import type { NextFunction, Request, Response } from "express";
-import { container } from "@shared/injection/container";
+import { container } from "@infrastructure/injection/container";
 import { TYPES } from "@shared/constants/constants";
 import { ListPatientsService } from "@application/services/patients/list-patients.service";
 

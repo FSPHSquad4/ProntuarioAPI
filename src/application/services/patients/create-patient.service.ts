@@ -1,9 +1,9 @@
 import type { CreatePatientDTO } from "@domain/dto/patients/create-patient.dto";
 import type { Patient } from "@domain/entities/patient.entity";
-import type { IPatientRepository } from "@domain/interfaces/repositories/patient.repository";
+import type { IPatientRepository } from "@domain/interfaces/repositories/patient.irepository";
 import { TYPES } from "@shared/constants/constants";
 import { parseDateFormat } from "@shared/helpers/parseDateFormat";
-import { AppError } from "@shared/middlewares/errorHandler";
+import { AppError } from "@infrastructure/middlewares/handlers/errorHandler";
 import { inject, injectable } from "inversify";
 
 @injectable()

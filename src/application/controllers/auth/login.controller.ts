@@ -1,7 +1,7 @@
 import { LoginService } from "@application/services/auth/login.service";
 import { TYPES } from "@shared/constants/constants";
-import { container } from "@shared/injection/container";
-import { asyncHandler } from "@shared/middlewares/asyncHandler";
+import { container } from "@infrastructure/injection/container";
+import { asyncHandler } from "@infrastructure/middlewares/handlers/asyncHandler";
 import type { NextFunction, Request, Response } from "express";
 
 export class LoginController {

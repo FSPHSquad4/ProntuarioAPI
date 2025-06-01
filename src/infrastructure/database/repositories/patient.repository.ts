@@ -1,7 +1,7 @@
 import { Patient } from "@domain/entities/patient.entity";
 import { BaseRepository } from "./base.repository";
 import type { EntityManager } from "@mikro-orm/mariadb";
-import type { IPatientRepository } from "@domain/interfaces/repositories/patient.repository";
+import type { IPatientRepository } from "@domain/interfaces/repositories/patient.irepository";
 import { inject, injectable } from "inversify";
 import { TYPES } from "@shared/constants/constants";
 

@@ -1,5 +1,5 @@
 import type { Patient } from "@domain/entities/patient.entity";
-import type { IPatientRepository } from "@domain/interfaces/repositories/patient.repository";
+import type { IPatientRepository } from "@domain/interfaces/repositories/patient.irepository";
 import { TYPES } from "@shared/constants/constants";
 import { inject, injectable } from "inversify";
 

@@ -1,8 +1,8 @@
 import type { DeletePatientService } from "@application/services/patients/delete-patient.service";
 import { TYPES } from "@shared/constants/constants";
-import { container } from "@shared/injection/container";
-import { asyncHandler } from "@shared/middlewares/asyncHandler";
-import { AppError } from "@shared/middlewares/errorHandler";
+import { container } from "@infrastructure/injection/container";
+import { asyncHandler } from "@infrastructure/middlewares/handlers/asyncHandler";
+import { AppError } from "@infrastructure/middlewares/handlers/errorHandler";
 import type { NextFunction, Request, Response } from "express";
 
 export class DeletePatientController {

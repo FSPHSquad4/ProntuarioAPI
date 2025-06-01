@@ -1,5 +1,5 @@
 import type { BaseEntity } from "@domain/entities/base.entity";
-import type { IBaseRepository } from "@domain/interfaces/repositories/base.repository";
+import type { IBaseRepository } from "@domain/interfaces/repositories/base.irepository";
 import {
     EntityManager,
     EntityRepository,

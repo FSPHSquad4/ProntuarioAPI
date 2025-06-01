@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
-import { container } from "@shared/injection/container";
-import { asyncHandler } from "@shared/middlewares/asyncHandler";
+import { container } from "@infrastructure/injection/container";
+import { asyncHandler } from "@infrastructure/middlewares/handlers/asyncHandler";
 import { CreatePatientService } from "@application/services/patients/create-patient.service";
 import { TYPES } from "@shared/constants/constants";
 

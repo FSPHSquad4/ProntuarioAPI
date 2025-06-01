@@ -1,6 +1,6 @@
-import type { IPatientRepository } from "@domain/interfaces/repositories/patient.repository";
+import type { IPatientRepository } from "@domain/interfaces/repositories/patient.irepository";
 import { TYPES } from "@shared/constants/constants";
-import { AppError } from "@shared/middlewares/errorHandler";
+import { AppError } from "@infrastructure/middlewares/handlers/errorHandler";
 import { inject, injectable } from "inversify";
 
 @injectable()

@@ -1,8 +1,8 @@
 import { CreateProfessionalService } from "@application/services/professionals/create-professional.service";
 import type { CreateProfessionalDTO } from "@domain/dto/professionals/create-professional.dto";
 import { TYPES } from "@shared/constants/constants";
-import { container } from "@shared/injection/container";
-import { asyncHandler } from "@shared/middlewares/asyncHandler";
+import { container } from "@infrastructure/injection/container";
+import { asyncHandler } from "@infrastructure/middlewares/handlers/asyncHandler";
 import type { NextFunction, Request, Response } from "express";
 
 export class CreateProfessionalController {

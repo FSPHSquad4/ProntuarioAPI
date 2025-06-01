@@ -20,6 +20,7 @@ export const authorize = (req: Request, res: Response, next: NextFunction) => {
         verifyToken(token);
 
         next();
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
         res.status(401).json({ error: "Invalid token" });
         return;
@@ -28,4 +29,4 @@ export const authorize = (req: Request, res: Response, next: NextFunction) => {
 
 const verifyToken = (token: string) => {
     return jwt.verify(token, process.env.JWT_SECRET as string);
-}
+};

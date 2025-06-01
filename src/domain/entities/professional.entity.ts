@@ -1,17 +1,23 @@
 import { Entity, Property } from "@mikro-orm/core";
-import { Person } from "./person.entity.ts";
+import { Roles, User } from "./user.entity.ts";
 
 @Entity()
-export class Professional extends Person {
-    @Property({ unique: true })
-    register!: string;
-
+export class Professional extends User {
     @Property()
     specialty!: string;
 
     @Property()
-    contact!: string;
+    professionalLicense!: string;
 
-    @Property()
-    availability!: string;
+    constructor(
+        name: string,
+        email: string,
+        password: string,
+        specialty: string,
+        professionalLicense: string,
+    ) {
+        super(name, email, password, Roles.PROFESSIONAL);
+        this.specialty = specialty;
+        this.professionalLicense = professionalLicense;
+    }
 }

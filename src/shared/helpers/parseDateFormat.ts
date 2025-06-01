@@ -1,4 +1,4 @@
-import { AppError } from "@shared/middlewares/errorHandler";
+import { AppError } from "@infrastructure/middlewares/handlers/errorHandler";
 import { isValid, parse } from "date-fns";
 
 export function parseDateFormat(dateStr: string): Date {

@@ -1,9 +1,6 @@
-export type CreateProfessionalDTO = {
-    fullName: string;
-    register: string;
+import type { CreateUserDTO } from "@domain/dto/users/create-user.dto.ts";
+
+export interface CreateProfessionalDTO extends CreateUserDTO {
     specialty: string;
-    contact: string;
-    availability: string;
-    birthDate: string;
-    gender: string;
-};
+    professionalLicense: string;
+}

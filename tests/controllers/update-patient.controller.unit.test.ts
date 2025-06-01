@@ -2,7 +2,7 @@ import type { UpdatePatientController } from "@application/controllers/patients/
 import type { UpdatePatientService } from "@application/services/patients/update-patient.service";
 import type { Patient } from "@domain/entities/patient.entity";
 import { TYPES } from "@shared/constants/constants";
-import { container } from "@shared/injection/container";
+import { container } from "@infrastructure/injection/container";
 import { mock, beforeEach, describe, afterEach, test, expect } from "bun:test";
 import type { Request, Response } from "express";
 
