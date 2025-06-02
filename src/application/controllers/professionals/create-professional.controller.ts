@@ -19,7 +19,11 @@ export class CreateProfessionalController {
                 const professional =
                     await createProfessionalService.execute(data);
 
-                return res.status(201).json(professional);
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                const { password, ...professionalWithoutPassword } =
+                    professional;
+
+                return res.status(201).json(professionalWithoutPassword);
             } catch (error) {
                 next(error);
             }

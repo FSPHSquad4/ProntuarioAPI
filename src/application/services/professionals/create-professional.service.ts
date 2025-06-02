@@ -4,6 +4,7 @@ import type { IProfessionalRepository } from "@domain/interfaces/repositories/pr
 import { TYPES } from "@shared/constants/constants";
 import { AppError } from "@infrastructure/middlewares/handlers/errorHandler";
 import { inject, injectable } from "inversify";
+import bcrypt from "bcrypt";
 
 @injectable()
 export class CreateProfessionalService {
@@ -22,7 +23,11 @@ export class CreateProfessionalService {
             throw new AppError("Professional already exists", 400);
         }
 
-        const professional = await this._professionalRepository.add(data);
+        const hashedPassword = await bcrypt.hash(data.password, 10);
+
+        const dataToSave = { ...data, password: hashedPassword };
+
+        const professional = await this._professionalRepository.add(dataToSave);
 
         return professional;
     }

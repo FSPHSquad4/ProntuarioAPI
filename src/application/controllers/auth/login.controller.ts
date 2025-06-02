@@ -12,10 +12,10 @@ export class LoginController {
                     TYPES.LoginService,
                 );
 
-                const { username, password } = req.body;
+                const { email, password } = req.body;
 
                 const token = await loginService.execute({
-                    username,
+                    email,
                     password,
                 });
 
