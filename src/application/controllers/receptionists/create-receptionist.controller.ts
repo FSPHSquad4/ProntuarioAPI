@@ -9,7 +9,7 @@ export class CreateReceptionistController {
     handle = asyncHandler(
         async (req: Request, res: Response, next: NextFunction) => {
             try {
-                const CreateReceptionistService =
+                const createReceptionistService =
                     container.get<CreateReceptionistService>(
                         TYPES.CreateReceptionistService,
                     );
@@ -17,7 +17,7 @@ export class CreateReceptionistController {
                 const data = req.body as CreateReceptionistDTO;
 
                 const receptionist =
-                    await CreateReceptionistService.execute(data);
+                    await createReceptionistService.execute(data);
 
                 const { password, ...receptionistWithoutPassword } =
                     receptionist;
