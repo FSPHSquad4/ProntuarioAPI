@@ -10,7 +10,7 @@ import bcrypt from "bcrypt";
 export class CreateProfessionalService {
     constructor(
         @inject(TYPES.ProfessionalRepository)
-        private _professionalRepository: IProfessionalRepository,
+        private readonly _professionalRepository: IProfessionalRepository,
     ) {}
 
     async execute(data: CreateProfessionalDTO): Promise<Professional> {

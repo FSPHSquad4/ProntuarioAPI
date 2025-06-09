@@ -9,6 +9,7 @@ import {
     type Request,
     type Response,
 } from "express";
+import { ListProfessionalsController } from "@application/controllers/professionals/list-professionals.controller";
 
 const professionalRoutes = Router();
 
@@ -18,6 +19,17 @@ professionalRoutes.post(
     (req: Request, res: Response, next: NextFunction) => {
         const controller = resolveController<CreateProfessionalController>(
             TYPES.CreateProfessionalController,
+        );
+
+        controller.handle(req, res, next);
+    },
+);
+
+professionalRoutes.get(
+    "/",
+    (req: Request, res: Response, next: NextFunction) => {
+        const controller = resolveController<ListProfessionalsController>(
+            TYPES.ListProfessionalsController,
         );
 
         controller.handle(req, res, next);

@@ -5,6 +5,7 @@ import { TYPES } from "@shared/constants/constants";
 import { ContainerModule } from "inversify";
 import { CreateProfessionalService } from "@application/services/professionals/create-professional.service";
 import { CreateProfessionalController } from "@application/controllers/professionals/create-professional.controller";
+import { ListProfessionalsService } from "@application/services/professionals/list-professionals.service";
 
 export const professionalModule = new ContainerModule((bind) => {
     bind<IProfessionalRepository>(TYPES.ProfessionalRepository)
@@ -20,6 +21,10 @@ export const professionalModule = new ContainerModule((bind) => {
 
     bind<CreateProfessionalService>(TYPES.CreateProfessionalService)
         .to(CreateProfessionalService)
+        .inSingletonScope();
+
+    bind<ListProfessionalsService>(TYPES.ListProfessionalsService)
+        .to(ListProfessionalsService)
         .inSingletonScope();
 
     // Controllers
