@@ -5,6 +5,8 @@ import { TYPES } from "@shared/constants/constants";
 import { patientsModule } from "@infrastructure/injection/patients.module.container";
 import { authModule } from "@infrastructure/injection/auth.module.container";
 import { professionalModule } from "@infrastructure/injection/professional.module.container";
+import { bookingsModule } from "./booking.module.container";
+import { receptionistModule } from "./receptionist.module.container";
 
 const container = new Container();
 
@@ -26,5 +28,9 @@ container.load(patientsModule);
 container.load(authModule);
 
 container.load(professionalModule);
+
+container.load(receptionistModule);
+
+container.load(bookingsModule);
 
 export { container };

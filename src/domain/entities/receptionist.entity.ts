@@ -16,25 +16,11 @@ export class Receptionist {
     password!: string;
 
     @Property()
-    specialty!: string;
-
-    @Property()
-    professionalLicense!: string;
-
-    @Property()
     role: Roles = Roles.RECEPTIONIST;
 
-    constructor(
-        name: string,
-        email: string,
-        password: string,
-        specialty: string,
-        professionalLicense: string,
-    ) {
+    constructor(name: string, email: string, password: string) {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.specialty = specialty;
-        this.professionalLicense = professionalLicense;
     }
 }
