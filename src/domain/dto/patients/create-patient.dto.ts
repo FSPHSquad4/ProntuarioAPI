@@ -4,6 +4,6 @@ export type CreatePatientDTO = {
     birthDate: Date;
     gender: string;
     maritalStatus: string;
-    companionName: string;
-    companionCpf: string;
+    companionName?: string;
+    companionCpf?: string;
 };
