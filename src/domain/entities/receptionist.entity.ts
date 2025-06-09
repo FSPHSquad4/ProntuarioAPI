@@ -1,8 +1,8 @@
 import { Entity, Property, PrimaryKey } from "@mikro-orm/core";
 import { Roles } from "./user.entity.ts";
 
-@Entity({ tableName: "professional" })
-export class Professional {
+@Entity({ tableName: "receptionist" })
+export class Receptionist {
     @PrimaryKey()
     id!: number;
 
@@ -22,7 +22,7 @@ export class Professional {
     professionalLicense!: string;
 
     @Property()
-    role: Roles = Roles.PROFESSIONAL;
+    role: Roles = Roles.RECEPTIONIST;
 
     constructor(
         name: string,

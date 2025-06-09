@@ -10,11 +10,11 @@ import jwt from "jsonwebtoken";
 export class LoginService {
     constructor(
         @inject(TYPES.GenericUserRepository)
-        private readonly userRepository: IGenericUserRepository,
+        private readonly _userRepository: IGenericUserRepository,
     ) {}
 
     async execute({ email, password }: LoginUserDTO): Promise<string> {
-        const user = await this.userRepository.findByEmail(email);
+        const user = await this._userRepository.findByEmail(email);
 
         if (!user) {
             throw new AppError("User not found", 404);
