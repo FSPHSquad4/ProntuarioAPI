@@ -6,6 +6,7 @@ import { ContainerModule } from "inversify";
 import { CreateProfessionalService } from "@application/services/professionals/create-professional.service";
 import { CreateProfessionalController } from "@application/controllers/professionals/create-professional.controller";
 import { ListProfessionalsService } from "@application/services/professionals/list-professionals.service";
+import { ListProfessionalsController } from "@application/controllers/professionals/list-professionals.controller";
 
 export const professionalModule = new ContainerModule((bind) => {
     bind<IProfessionalRepository>(TYPES.ProfessionalRepository)
@@ -32,4 +33,8 @@ export const professionalModule = new ContainerModule((bind) => {
     bind<CreateProfessionalController>(TYPES.CreateProfessionalController)
         .to(CreateProfessionalController)
         .inTransientScope();
+
+    bind<ListProfessionalsController>(TYPES.ListProfessionalsController)
+        .to(ListProfessionalsController)
+        .inSingletonScope();
 });
