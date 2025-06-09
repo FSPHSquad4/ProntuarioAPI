@@ -1,8 +1,8 @@
 import { Entity, Enum, ManyToOne, Property } from "@mikro-orm/core";
-import { BaseEntity } from "./base.entity";
-import { Patient } from "./patient.entity";
-import { Receptionist } from "./receptionist.entity";
-import { Professional } from "./professional.entity";
+import { BaseEntity } from "./base.entity.ts";
+import { Patient } from "./patient.entity.ts";
+import { Receptionist } from "./receptionist.entity.ts";
+import { Professional } from "./professional.entity.ts";
 
 export enum ConsultationStatus {
     SCHEDULED = "scheduled",
