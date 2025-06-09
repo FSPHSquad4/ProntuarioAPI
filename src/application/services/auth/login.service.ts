@@ -5,6 +5,8 @@ import type { LoginUserDTO } from "@domain/dto/auth/login.dto";
 import { AppError } from "@infrastructure/middlewares/handlers/errorHandler";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { Receptionist } from "@domain/entities/receptionist.entity";
+import { Roles } from "@domain/entities/user.entity";
 
 @injectable()
 export class LoginService {
@@ -29,7 +31,13 @@ export class LoginService {
             throw new AppError("Invalid password", 401);
         }
 
-        const token = this.signToken({ email, role: user.role });
+        const token = this.signToken({
+            email,
+            role:
+                user instanceof Receptionist
+                    ? Roles.RECEPTIONIST
+                    : Roles.PROFESSIONAL,
+        });
 
         return token;
     }
