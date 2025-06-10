@@ -4,6 +4,7 @@ import { TYPES } from "@shared/constants/constants";
 import { AppError } from "@infrastructure/middlewares/handlers/errorHandler";
 import { inject, injectable } from "inversify";
 import bcrypt from "bcrypt";
+import type { CreateReceptionistDTO } from "@domain/dto/receptionist/create-receptionist.dto";
 
 @injectable()
 export class CreateReceptionistService {
@@ -12,7 +13,7 @@ export class CreateReceptionistService {
         private readonly _receptionistRepository: IReceptionistRepository,
     ) {}
 
-    async execute(data: Receptionist): Promise<Receptionist> {
+    async execute(data: CreateReceptionistDTO): Promise<Receptionist> {
         const receptionistAlreadyExists =
             await this._receptionistRepository.findByEmail(data.email);
 
