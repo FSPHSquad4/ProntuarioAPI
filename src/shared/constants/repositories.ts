@@ -4,4 +4,6 @@ export const REPOSITORY_TYPES = {
     ProfessionalRepository: Symbol.for("IProfessionalRepository"),
     ReceptionistRepository: Symbol.for("IReceptionistRepository"),
     BookingRepository: Symbol.for("BookingRepository"),
+    NurseRepository: Symbol.for("INurseRepository"),
+
 };

@@ -11,4 +11,6 @@ export const CONTROLLER_TYPES = {
     ListBookingsController: Symbol.for("ListBookingsController"),
     UpdateBookingController: Symbol.for("UpdateBookingController"),
     DeleteBookingController: Symbol.for("DeleteBookingController"),
+    CreateNurseController: Symbol.for("CreateNurseController"),
+    ListNurseController: Symbol.for("ListNurseController"),
 };

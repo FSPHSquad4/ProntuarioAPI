@@ -12,10 +12,10 @@ export class Server {
     constructor(port: number = parseInt(process.env.PORT || "3000")) {
         this.app = express();
         this.port = port;
+        this.setupCors();
         this.setupMiddlewares();
         this.setupRoutes();
         this.setupErrorHandling();
-        this.setupCors();
     }
 
     private setupMiddlewares() {
@@ -31,7 +31,13 @@ export class Server {
     }
 
     private setupCors() {
-        this.app.use(cors());
+        this.app.use(
+            cors({
+                origin: ["http://localhost:5173", "http://localhost:3000"],
+                methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+                credentials: true,
+            }),
+        );
     }
 
     async start() {

@@ -11,4 +11,6 @@ export const SERVICE_TYPES = {
     ListBookingsService: Symbol.for("ListBookingsService"),
     UpdateBookingService: Symbol.for("UpdateBookingService"),
     DeleteBookingService: Symbol.for("DeleteBookingService"),
+    CreateNurseService: Symbol.for("CreateNurseService"),
+    ListNurseService: Symbol.for("ListNurseService"),
 };
