@@ -12,7 +12,7 @@ export class ListNurseController {
                     TYPES.ListNurseService,
                 );
 
-                const nurses = await listNurseService.execute();
+                 const nurses = await listNurseService.execute();
 
                 return res.json(nurses);
             } catch (error) {
